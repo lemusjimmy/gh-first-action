@@ -1,0 +1,23 @@
+name: Output Information
+on: workflow_dispatch
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Display Environment Variables
+        run: |
+          echo "Environment Variables:"
+          printenv
+
+      - name: Display GitHub Context
+        run: |
+          echo "GitHub Context:"
+          echo "${{ toJson(github) }}"
+
+      - name: Display Workflow Context
+        run: |
+          echo "Workflow Context:"
+          echo "${{ toJson(steps) }}"
