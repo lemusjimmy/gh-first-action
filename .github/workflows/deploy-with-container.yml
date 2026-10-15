@@ -1,8 +1,5 @@
 name: Deployment With Container
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 jobs:
   probes:
     runs-on: ubuntu-latest
@@ -15,5 +12,7 @@ jobs:
           echo "Current working directory: $(pwd)"
           echo "Listing files:"
           ls -al
-          echo hostname: $(hostname)
+          echo "Checking .NET SDK version:"
+          dotnet --version
+
         
